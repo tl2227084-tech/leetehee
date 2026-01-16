@@ -156,7 +156,8 @@ export class MemStorage implements IStorage {
 
   async getAvailableMonths(): Promise<string[]> {
     const months = new Set<string>();
-    for (const key of this.radarEntries.keys()) {
+    const keys = Array.from(this.radarEntries.keys());
+    for (const key of keys) {
       const [month] = key.split(":");
       months.add(month);
     }
