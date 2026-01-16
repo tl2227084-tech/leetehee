@@ -1,0 +1,22 @@
+[build]
+  command = "npx vite build"
+  publish = "dist/public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/radar/months"
+  to = "/.netlify/functions/radar-months"
+  status = 200
+
+[[redirects]]
+  from = "/api/radar"
+  to = "/.netlify/functions/radar"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
